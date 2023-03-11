@@ -47,5 +47,4 @@ end
 		}
 	}
     use 'windwp/nvim-autopairs'
-    use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
 end)
