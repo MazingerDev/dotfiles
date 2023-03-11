@@ -1,8 +1,9 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
--- Only required if you have packer configured as `opt`
-    
-  vim.cmd [[packadd packer.nvim]]
+if fn.empty(fn.glob(install_path)) > 0 then
+    Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end   
 
   return require('packer').startup(function(use)
    -- Packer can manage itself
@@ -45,4 +46,6 @@
 			{'rafamadriz/friendly-snippets'}, -- Optional
 		}
 	}
+    use 'windwp/nvim-autopairs'
+    use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
 end)
